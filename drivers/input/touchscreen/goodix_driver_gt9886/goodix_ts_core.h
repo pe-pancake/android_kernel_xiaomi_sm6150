@@ -48,6 +48,7 @@
 #include <linux/uaccess.h>
 #include <linux/version.h>
 #include <linux/vmalloc.h>
+#include <linux/pm_qos.h>
 
 #include "../xiaomi/xiaomi_touch.h"
 
@@ -495,7 +496,7 @@ struct goodix_ts_core {
 	struct work_struct sleep_work;
 	bool tp_already_suspend;
 	struct completion pm_resume_completion;
-
+	struct pm_qos_request pm_touch_req;
 };
 
 struct goodix_mode_switch {
